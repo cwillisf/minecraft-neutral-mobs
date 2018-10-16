@@ -63,11 +63,11 @@
         },
         "minecraft:navigation.generic": {
           "is_amphibious": true,
-          "can_float": false,
+          "can_path_over_water": false,
           "can_swim": true,
           "can_walk": false,
           "can_breach": true,
-          "can_sink":  false
+          "can_sink": false
         },
         "minecraft:environment_sensor": [
           {
@@ -92,7 +92,7 @@
       "minecraft:dolphin_on_land": {
         "minecraft:navigation.generic": {
           "is_amphibious": true,
-          "can_float": true,
+          "can_path_over_water": true,
           "can_swim": true,
           "can_walk": true,
           "can_breach": false,
@@ -119,7 +119,7 @@
       "minecraft:dolphin_on_land_in_rain": {
         "minecraft:navigation.generic": {
           "is_amphibious": true,
-          "can_float": false,
+          "can_path_over_water": true,
           "can_swim": true,
           "can_walk": true,
           "can_breach": false,
@@ -182,11 +182,11 @@
       },
       "minecraft:navigation.generic": {
         "is_amphibious": true,
-        "can_float": false,
+        "can_path_over_water": true,
         "can_swim": true,
         "can_walk": false,
         "can_breach": true,
-        "can_sink":  false
+        "can_sink": false
       },
 
       "minecraft:underwater_movement": {

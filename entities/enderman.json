@@ -94,7 +94,7 @@
         "must_see": true
       },
       "minecraft:navigation.walk": {
-        "can_float": false,
+        "can_path_over_water": false,
         "avoid_water": true
       },
       "minecraft:movement.basic": {

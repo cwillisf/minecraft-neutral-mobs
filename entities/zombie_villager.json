@@ -529,7 +529,108 @@
       },
 
       "from_village": {
-        "add": { "component_groups": [ "from_abandoned_village" ] }
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_component",
+              "operator": "!=",
+              "value": "minecraft:variant"
+            },
+            "randomize": [
+              {
+                "weight": 9500,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "adult"
+                  ]
+                }
+              },
+              {
+                "weight": 425,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "baby"
+                  ]
+
+                }
+              },
+              {
+                "weight": 75,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "baby",
+                    "jockey"
+                  ]
+
+                }
+              }
+            ]
+          },
+          {
+            "filters": {
+              "test": "has_component",
+              "operator": "!=",
+              "value": "minecraft:variant"
+            },
+            "randomize": [
+              {
+                "weight": 5,
+                "add": { "component_groups": [ "farmer" ] }
+              },
+              {
+                "weight": 5,
+                "add": { "component_groups": [ "fisherman" ] }
+              },
+              {
+                "weight": 5,
+                "add": { "component_groups": [ "shepherd" ] }
+              },
+              {
+                "weight": 5,
+                "add": { "component_groups": [ "fletcher" ] }
+              },
+              {
+                "weight": 20,
+                "add": { "component_groups": [ "librarian" ] }
+              },
+              {
+                "weight": 20,
+                "add": { "component_groups": [ "cartographer" ] }
+              },
+              {
+                "weight": 20,
+                "add": { "component_groups": [ "cleric" ] }
+              },
+              {
+                "weight": 6,
+                "add": { "component_groups": [ "armorer" ] }
+              },
+              {
+                "weight": 6,
+                "add": { "component_groups": [ "weaponsmith" ] }
+              },
+              {
+                "weight": 6,
+                "add": { "component_groups": [ "toolsmith" ] }
+              },
+              {
+                "weight": 10,
+                "add": { "component_groups": [ "butcher" ] }
+              },
+              {
+                "weight": 10,
+                "add": { "component_groups": [ "leatherworker" ] }
+              }
+            ]
+          },
+          { "add": { "component_groups": [ "from_abandoned_village" ] } }
+        ]
       }
     }
   }

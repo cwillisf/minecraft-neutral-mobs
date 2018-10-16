@@ -53,8 +53,8 @@
         "value": 0.2
       },
       "minecraft:navigation.walk": {
-        "can_float": true,
-        "can_sink":  false
+        "can_path_over_water": true,
+        "can_sink": false
       },
       "minecraft:movement.basic": {
       },

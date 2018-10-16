@@ -138,9 +138,9 @@
       },
       "minecraft:movement": {
         "value": 0.3
-      },      
+      },
       "minecraft:navigation.climb": {
-        "can_float": true
+        "can_path_over_water": true
       },
       "minecraft:movement.basic": {
       },

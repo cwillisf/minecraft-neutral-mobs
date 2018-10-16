@@ -24,7 +24,7 @@
         "value": 0.25
       },
       "minecraft:navigation.walk": {
-        "can_float": true,
+        "can_path_over_water": true,
         "avoid_water": false
       },
       "minecraft:movement.basic": {

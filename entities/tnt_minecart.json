@@ -20,6 +20,23 @@
         "minecraft:is_ignited": {
         }
       },
+      "minecraft:instant_explode_tnt": {
+        "minecraft:explode": {
+          "on_activate": {
+
+          },
+          "fuseLength": 0,
+          "fuseLit": true,
+          "power": 3,
+          "causesFire": false
+        },
+        "minecraft:rail_sensor": {
+          
+        
+        },
+        "minecraft:is_ignited": {
+        }
+      },
       "minecraft:inactive": {
         "minecraft:rail_sensor": {
           "on_activate": {
@@ -130,6 +147,18 @@
         "add": {
           "component_groups": [
             "minecraft:primed_tnt"
+          ]
+        }
+      },
+      "minecraft:on_instant_prime": {
+        "remove": {
+          "component_groups": [
+            "minecraft:inactive"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:instant_explode_tnt"
           ]
         }
       }

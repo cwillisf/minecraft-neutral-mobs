@@ -81,7 +81,7 @@
         "suffocateTime": 0
       },
       "minecraft:navigation.walk": {
-        "can_float": true,
+        "can_path_over_water": true,
         "avoid_water": true
       },
       "minecraft:jump.static": {

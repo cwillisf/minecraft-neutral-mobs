@@ -81,7 +81,7 @@
       "minecraft:hunter_mode": {
         "minecraft:navigation.generic": {
           "is_amphibious": true,
-          "can_float": false,
+          "can_path_over_water": false,
           "can_swim": true,
           "can_walk": true,
           "avoid_sun": true
@@ -91,7 +91,7 @@
       "minecraft:wander_mode": {
         "minecraft:navigation.generic": {
           "is_amphibious": true,
-          "can_float": false,
+          "can_path_over_water": false,
           "can_swim": false,
           "can_walk": true,
           "avoid_sun": true
@@ -141,7 +141,7 @@
       },
       "minecraft:navigation.generic": {
         "is_amphibious": true,
-        "can_float": false,
+        "can_path_over_water": false,
         "can_swim": false,
         "can_walk": true,
         "avoid_sun": true

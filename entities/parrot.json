@@ -117,7 +117,7 @@
         "value": true
       },
       "minecraft:navigation.fly": {
-        "can_float": true
+        "can_path_over_water": true
       },
       "minecraft:movement.fly": {
       },

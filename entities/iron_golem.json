@@ -53,7 +53,7 @@
         "value": 0.25
       },
       "minecraft:navigation.walk": {
-        "can_float": false,
+        "can_path_over_water": false,
         "avoid_water": true,
         "avoid_damage_blocks": true
       },

@@ -23,7 +23,7 @@
         "value": 0.23
       },
       "minecraft:navigation.walk": {
-        "can_float": true
+        "can_path_over_water": true
       },
       "minecraft:movement.basic": {
 
@@ -50,10 +50,13 @@
       "minecraft:nameable": {
 
       },
-	  "minecraft:behavior.hurt_by_target": {
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
-	  "minecraft:behavior.nearest_attackable_target": {
+      "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "entity_types": [
           {
