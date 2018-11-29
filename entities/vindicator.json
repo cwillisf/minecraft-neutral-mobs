@@ -1,6 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:vindicator",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "component_groups": {
       "minecraft:vindicator_aggro": {
@@ -29,9 +35,6 @@
     },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:vindicator"
-      },
       "minecraft:nameable": {
         "default_trigger": {
           "event": "minecraft:stop_johnny",

@@ -1,6 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:turtle",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "component_groups": {
       "minecraft:baby": {
@@ -114,9 +120,6 @@
     },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:turtle"
-      },
       "minecraft:breathable": {
         "totalSupply": 15,
         "suffocateTime": 0,

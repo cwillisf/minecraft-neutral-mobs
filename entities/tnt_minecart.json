@@ -1,6 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:tnt_minecart",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "component_groups": {
       "minecraft:primed_tnt": {
@@ -112,9 +118,6 @@
     },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:tnt_minecart"
-      },
       "minecraft:type_family": {
         "family": [ "minecart", "inanimate" ]
       },

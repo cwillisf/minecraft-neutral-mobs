@@ -1,6 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:wolf",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "component_groups": {
       "minecraft:wolf_baby": {
@@ -239,9 +245,6 @@
 
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:wolf"
-      },
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
@@ -386,7 +389,8 @@
         "priority": 9,
         "look_distance": 8,
         "look_time": [ 2, 4 ],
-        "items": [ "bone" ]
+        "items": [ "bone", "porkchop", "cooked_porkchop", "chicken", "cooked_chicken", 
+                   "beef", "cooked_beef", "rotten_flesh", "muttonraw", "muttoncooked", "rabbit", "cooked_rabbit" ]
       },
 
       "minecraft:behavior.hurt_by_target": {

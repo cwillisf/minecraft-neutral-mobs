@@ -1,11 +1,13 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
-
+    "description": {
+      "identifier": "minecraft:cod",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:cod"
-      },
       "minecraft:type_family": {
         "family": [ "cod", "fish" ]
       },

@@ -1,6 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:mule",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "component_groups": {
       "minecraft:mule_baby": {
@@ -234,9 +240,6 @@
     },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:mule"
-      },
       "minecraft:type_family": {
         "family": [ "mule" ]
       },

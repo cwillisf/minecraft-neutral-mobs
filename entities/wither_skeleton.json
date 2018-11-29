@@ -1,11 +1,14 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
+    "description": {
+      "identifier": "minecraft:wither_skeleton",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:wither_skeleton"
-      },
       "minecraft:breathable": {
         "totalSupply": 15,
         "suffocateTime": 0,

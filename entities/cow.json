@@ -1,7 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
-
+    "description": {
+      "identifier": "minecraft:cow",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
     "component_groups": {
       "minecraft:cow_baby": {
         "minecraft:is_baby": {
@@ -70,11 +75,7 @@
       }
     },
 
-
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:cow"
-      },
       "minecraft:type_family": {
         "family": [ "cow" ]
       },

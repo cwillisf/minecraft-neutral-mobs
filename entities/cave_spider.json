@@ -1,7 +1,12 @@
 {
+  "format_version": "1.8.0",
   "minecraft:entity": {
-    "format_version": "1.2.0",
-	
+    "description": {
+      "identifier": "minecraft:cave_spider",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
     "component_groups": {
       "minecraft:spider_jockey": {
         "minecraft:addrider": {
@@ -161,9 +166,6 @@
     },
 
     "components": {
-      "minecraft:identifier": {
-        "id": "minecraft:cave_spider"
-      },
       "minecraft:type_family": {
         "family": [ "cavespider", "monster", "arthropod" ]
       },
