@@ -246,9 +246,6 @@
         "search_range": 30,
         "stop_distance":  50
       },
-      "minecraft:behavior.breathe_air": {
-        "priority": 1
-      },
       "minecraft:behavior.move_to_water": {
         "priority": 1,
         "search_range": 15,

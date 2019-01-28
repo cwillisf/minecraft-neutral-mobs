@@ -101,10 +101,6 @@
           }
         ]
       },
-      "minecraft:behavior.follow_flock": {
-        "priority": 2,
-        "speed_multiplier": 0.12
-      },
       "minecraft:behavior.swim_idle": {
         "priority": 5
       },

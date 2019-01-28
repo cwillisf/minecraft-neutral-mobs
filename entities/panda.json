@@ -151,6 +151,12 @@
             "cake"
           ]
         },
+        "minecraft:behavior.panic": {
+          "priority": 1,
+          // Lazy panda's move half the speed, so double their multiplier when they panic
+          // Otherwise, they don't actually look like they're panicking
+          "speed_multiplier": 2.5
+        },
         "minecraft:movement": {
           "value": 0.07
         }
@@ -268,6 +274,12 @@
         "minecraft:on_friendly_anger": {
           "event": "minecraft:on_anger",
           "target": "self"
+        },
+        "minecraft:behavior.panic": {
+          "priority": 1,
+          "speed_multiplier": 1.25,
+          // Aggressive pandas don't panic from mob damage
+          "ignore_mob_damage": true
         }
       },
       "minecraft:panda_angry": {
@@ -303,12 +315,6 @@
             "target": "self"
           }
         }
-      },
-      "minecraft:panda_panic": {
-        "minecraft:behavior.panic": {
-          "priority": 1,
-          "speed_multiplier": 1.25
-        }
       }
     },
 
@@ -335,6 +341,7 @@
         "priority": 1
       },
       "minecraft:giveable": {
+        "cooldown": 3.0,
         "items": [
           "bamboo",
           "cake"
@@ -376,7 +383,7 @@
         "min_sit_time": 10
       },
       "minecraft:behavior.snacking": {
-        "priority": 1,
+        "priority": 2,
         "snacking_cooldown": 22.5,
         "snacking_cooldown_min": 20,
         "snacking_stop_chance": 0.001334,
@@ -413,6 +420,10 @@
       },
       "minecraft:behavior.random_look_around": {
         "priority": 9
+      },
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 1.25
       },
       "minecraft:balloonable": {
       },
@@ -623,11 +634,6 @@
         "add": {
           "component_groups": [
             "minecraft:panda_aggressive"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "minecraft:panda_panic"
           ]
         }
       },
