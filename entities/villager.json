@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:villager",
@@ -318,10 +318,15 @@
         "value": 0.5
       },
       "minecraft:navigation.walk": {
+        "is_amphibious": true,
         "can_path_over_water": true,
         "can_pass_doors": true,
         "can_open_doors": true,
+        "can_walk": true,
         "avoid_water": true
+      },
+      "minecraft:annotation.open_door": {
+
       },
       "minecraft:movement.basic": {
       },

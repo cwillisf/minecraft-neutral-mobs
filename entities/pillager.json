@@ -5,7 +5,7 @@
       "identifier": "minecraft:pillager",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": true
+      "is_experimental": false
     },
 
     "component_groups": {
@@ -112,21 +112,10 @@
           {
             "filters": {
               "any_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "player"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "villager"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "irongolem"
-                }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
             "max_dist": 16
@@ -144,6 +133,12 @@
       },
       "minecraft:behavior.random_look_around": {
         "priority": 6
+      },
+      "minecraft:behavior.charge_held_item": {
+        "priority": 3,
+        "items": [
+          "minecraft:arrow"
+        ]
       },
       "minecraft:physics": {
       }

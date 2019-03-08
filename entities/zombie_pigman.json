@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:zombie_pigman",
@@ -82,9 +82,6 @@
       },
       "minecraft:attack": {
         "damage": 5
-      },
-      "minecraft:behavior.break_door": {
-        "priority": 1
       },
       "minecraft:behavior.mount_pathing": {
         "priority": 2,
