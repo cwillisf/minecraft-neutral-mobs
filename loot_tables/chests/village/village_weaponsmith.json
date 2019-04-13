@@ -130,9 +130,13 @@
                 "min": 3,
                 "max": 7
               }
+            },
+            {
+              "function": "set_data",
+              "data": 0
             }
           ],
-          "name": "minecraft:oak_sapling"
+          "name": "minecraft:sapling"
         },
         {
           "type": "item",
@@ -141,15 +145,15 @@
         },
         {
           "type": "item",
-          "name": "minecraft:iron_horse_armor"
+          "name": "minecraft:horsearmoriron"
         },
         {
           "type": "item",
-          "name": "minecraft:golden_horse_armor"
+          "name": "minecraft:horsearmorgold"
         },
         {
           "type": "item",
-          "name": "minecraft:diamond_horse_armor"
+          "name": "minecraft:horsearmordiamond"
         }
       ]
     }

@@ -160,7 +160,7 @@
       "minecraft:behavior.stomp_turtle_egg": {
         "priority": 4,
         "speed_multiplier": 1,
-        "search_range": 24,
+        "search_range": 10,
         "search_height": 3,
         "goal_radius": 1.14,
         "search_count": 4,
@@ -209,7 +209,7 @@
                 }
               ]
             },
-            "max_dist": 35
+            "max_dist": 20
           },
           {
             "filters": {
@@ -228,7 +228,7 @@
                 }
               ]
             },
-            "max_dist": 35,
+            "max_dist": 20,
             "must_see": false
           },
           {
@@ -238,7 +238,7 @@
                 { "test": "in_water", "subject": "other", "operator": "!=", "value": true }
               ]
             },
-            "max_dist": 35
+            "max_dist": 20
           }
         ],
         "must_see": true,

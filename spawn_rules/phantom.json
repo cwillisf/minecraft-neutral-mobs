@@ -15,11 +15,6 @@
             "max": 7,
             "adjust_for_weather": true
           },
-
-          "minecraft:distance_filter": {
-            "min": 0,
-            "max": 10
-          },
           
           "minecraft:difficulty_filter": {
             "min": "easy",

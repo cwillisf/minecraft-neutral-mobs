@@ -518,6 +518,13 @@
         ]
       },
 
+      "become_zombie_villager_v2": {
+        "minecraft:transformation": {
+          "into": "minecraft:zombie_villager_v2",
+          "keep_level": false
+        }
+      },
+
       "minecraft:become_cleric": {
         "add": { "component_groups": [ "cleric" ] }
       },

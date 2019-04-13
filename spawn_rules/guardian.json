@@ -4,6 +4,11 @@
     "description": {
       "identifier": "minecraft:guardian",
       "population_control": "monster"
-    }
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underwater": {}
+      }
+    ]
   }
 }

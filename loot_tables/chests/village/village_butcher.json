@@ -64,7 +64,7 @@
               }
             }
           ],
-          "name": "minecraft:mutton"
+          "name": "minecraft:muttonRaw"
         },
         {
           "type": "item",
