@@ -21,6 +21,11 @@
         "minecraft:behavior.move_to_village": {
           "priority": 3,
           "speed_multiplier": 1.2
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 2.0,
+          "range": 4.0,
+          "event_name": "ambient.in.raid"
         }
       }
     },

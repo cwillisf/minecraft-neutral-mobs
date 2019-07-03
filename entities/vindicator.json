@@ -122,6 +122,11 @@
         "minecraft:annotation.break_door": {
           "break_time": 30,
           "min_difficulty": "normal"
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 2.0,
+          "range": 4.0,
+          "event_name": "ambient.in.raid"
         }
       },
       "minecraft:illager_squad_captain": {
@@ -240,7 +245,7 @@
       },
       "minecraft:collision_box": {
         "width": 0.6,
-        "height": 1.95
+        "height": 1.9
       },
       "minecraft:health": {
         "value": 24,

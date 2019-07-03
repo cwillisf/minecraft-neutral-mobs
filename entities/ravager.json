@@ -59,6 +59,11 @@
         "minecraft:behavior.random_stroll": {
           "priority": 6,
           "speed_multiplier": 1.0
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 4.0,
+          "range": 8.0,
+          "event_name": "ambient.in.raid"
         }
       },
       "minecraft:hostile": {

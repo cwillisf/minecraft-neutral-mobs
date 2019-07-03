@@ -20,7 +20,7 @@
               ]
             },
             {
-              "max_uses": 9,
+              "max_uses": 16,
               "wants": [
                 {
                   "item": "minecraft:emerald",
@@ -250,16 +250,16 @@
               ]
             },
             {
-              "max_uses": 6,
+              "max_uses": 8,
               "wants": [
                 {
-                  "item": "minecraft:emerald",
-                  "quantity": 3
+                  "item": "minecraft:emerald"
                 }
               ],
               "gives": [
                 {
                   "item": "minecraft:coral_block",
+                  "quantity": 3,
                   "functions": [
                     {
                       "function": "random_block_state",
@@ -305,21 +305,6 @@
                       "item": "minecraft:red_mushroom"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "max_uses": 16,
-              "wants": [
-                {
-                  "item": "minecraft:emerald",
-                  "quantity": 1
-                }
-              ],
-              "gives": [
-                {
-                  "item": "minecraft:sand",
-                  "quantity": 8
                 }
               ]
             },
@@ -402,7 +387,7 @@
               ]
             },
             {
-              "max_uses": 32,
+              "max_uses": 8,
               "wants": [
                 {
                   "item": "minecraft:emerald",
@@ -416,7 +401,7 @@
               ]
             },
             {
-              "max_uses": 16,
+              "max_uses": 8,
               "wants": [
                 {
                   "item": "minecraft:emerald",
@@ -444,7 +429,7 @@
               ]
             },
             {
-              "max_uses": 22,
+              "max_uses": 8,
               "wants": [
                 {
                   "item": "minecraft:emerald",
@@ -453,7 +438,8 @@
               ],
               "gives": [
                 {
-                  "item": "minecraft:podzol"
+                  "item": "minecraft:podzol",
+                  "quantity": 3
                 }
               ]
             }

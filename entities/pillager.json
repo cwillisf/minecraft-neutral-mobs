@@ -70,6 +70,11 @@
         },
         "minecraft:loot": {
           "table": "loot_tables/entities/pillager_raid.json"
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 2.0,
+          "range": 4.0,
+          "event_name": "ambient.in.raid"
         }
       },
       "minecraft:illager_squad_captain": {
@@ -161,7 +166,7 @@
     "components": {
       "minecraft:collision_box": {
         "width": 0.6,
-        "height": 1.95
+        "height": 1.9
       },
       "minecraft:type_family": {
         "family": [ "pillager", "monster", "illager" ]

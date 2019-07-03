@@ -21,7 +21,7 @@
                 }
               ],
               "trader_exp": 1,
-              "max_uses": 4,
+              "max_uses": 6,
               "reward_exp": true
             },
             {
@@ -39,7 +39,7 @@
                 }
               ],
               "trader_exp": 1,
-              "max_uses": 4,
+              "max_uses": 6,
               "reward_exp": true
             }
           ]
@@ -84,7 +84,7 @@
                 }
               ],
               "trader_exp": 2,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]
@@ -112,7 +112,7 @@
                 }
               ],
               "trader_exp": 5,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]
@@ -157,7 +157,7 @@
                 }
               ],
               "trader_exp": 10,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]
@@ -185,7 +185,7 @@
                 }
               ],
               "trader_exp": 10,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]
@@ -218,7 +218,7 @@
                 }
               ],
               "trader_exp": 20,
-              "max_uses": 1,
+              "max_uses": 2,
               "reward_exp": true
             }
           ]
@@ -246,7 +246,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -264,7 +264,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -282,7 +282,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -300,7 +300,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -318,7 +318,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -336,7 +336,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             },
             {
@@ -354,7 +354,7 @@
                 }
               ],
               "trader_exp": 15,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]
@@ -381,7 +381,7 @@
                 }
               ],
               "trader_exp": 0,
-              "max_uses": 4,
+              "max_uses": 5,
               "reward_exp": true
             }
           ]

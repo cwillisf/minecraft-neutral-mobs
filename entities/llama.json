@@ -23,7 +23,7 @@
               "growth": 0.1
             },
             {
-              "item": "tile.hay_block",
+              "item": "hay_block",
               "growth": 0.9
             }
           ],
@@ -63,17 +63,13 @@
               "target": "baby"
             }
           },
-          "breedItems": [ "tile.hay_block" ]
+          "breedItems": [ "hay_block" ]
         }
       },
 
       "minecraft:llama_wandering_trader": {
         "minecraft:mark_variant": {
           "value": 1
-        },
-        "minecraft:on_friendly_anger": {
-          "event": "minecraft:defend_wandering_trader",
-          "target": "self"
         },
         "minecraft:environment_sensor": {
           // If this is a Wandering Trader's llama and it was just released from its leash, make it tame
@@ -164,7 +160,7 @@
               "temperMod": 3
             },
             {
-              "item": "tile.hay_block",
+              "item": "hay_block",
               "temperMod": 6
             }
           ],
@@ -250,13 +246,6 @@
         }
       },
 
-      "minecraft:llama_leashed": {
-        "minecraft:behavior.move_towards_restriction": {
-          "priority": 2,
-          "speed_multiplier": 1.0
-        }
-      },
-
       "minecraft:llama_angry": {
         "minecraft:angry": {
           "duration": 4,
@@ -276,22 +265,6 @@
       "minecraft:llama_angry_wolf": {
         "minecraft:angry": {
           "duration": -1,
-          "broadcastAnger": false,
-          "calm_event": {
-            "event": "minecraft:on_calm",
-            "target": "self"
-          }
-        },
-        "minecraft:behavior.ranged_attack": {
-          "priority": 2,
-          "attack_radius": 64,
-          "charge_shoot_trigger": 2,
-          "charge_charged_trigger": 1
-        }
-      },
-      "minecraft:llama_defend_trader": {
-        "minecraft:angry": {
-          "duration": 10,
           "broadcastAnger": false,
           "calm_event": {
             "event": "minecraft:on_calm",
@@ -356,15 +329,7 @@
         "soft_distance": 4.0,
         "hard_distance": 6.0,
         "max_distance": 10.0,
-        "can_be_stolen": true,
-        "on_leash": {
-          "event": "minecraft:on_leash",
-          "target": "self"
-        },
-        "on_unleash": {
-          "event": "minecraft:on_unleash",
-          "target": "self"
-        }
+        "can_be_stolen": true
       },
       "minecraft:balloonable": {
       },
@@ -375,7 +340,7 @@
             "heal_amount": 2
           },
           {
-            "item": "tile.hay_block",
+            "item": "hay_block",
             "heal_amount": 10
           }
         ]
@@ -718,20 +683,6 @@
           ]
         }
       },
-      "minecraft:on_leash": {
-        "add": {
-          "component_groups": [
-            "minecraft:llama_leashed"
-          ]
-        }
-      },
-      "minecraft:on_unleash": {
-        "remove": {
-          "component_groups": [
-            "minecraft:llama_leashed"
-          ]
-        }
-      },
       "minecraft:join_caravan": {
         "add": {
           "component_groups": [
@@ -753,13 +704,6 @@
           ]
         }
       },
-      "minecraft:defend_wandering_trader": {
-        "add": {
-          "component_groups": [
-            "minecraft:llama_defend_trader"
-          ]
-        }
-      },
       "minecraft:become_angry": {
         "add": {
           "component_groups": [
@@ -771,8 +715,7 @@
         "remove": {
           "component_groups": [
             "minecraft:llama_angry",
-            "minecraft:llama_angry_wolf",
-            "minecraft:llama_defend_trader"
+            "minecraft:llama_angry_wolf"
           ]
         }
       },
