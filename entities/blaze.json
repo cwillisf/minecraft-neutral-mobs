@@ -41,7 +41,6 @@
       "minecraft:can_climb": {
       },
       "minecraft:can_fly": {
-        "value": true
       },
       "minecraft:health": {
         "value": 20,
