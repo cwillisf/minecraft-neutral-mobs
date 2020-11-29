@@ -38,7 +38,7 @@
           "priority": 4,
           "entity_types": [
             {
-              "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+              "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player-nope"},
               "max_dist": 16
             }
           ]

@@ -334,7 +334,7 @@
                 {
                   "test": "is_family",
                   "subject": "other",
-                  "value": "player"
+                  "value": "player-nope"
                 },
                 {
                   "test": "is_family",

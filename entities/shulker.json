@@ -168,7 +168,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 3,
         "entity_types": {
-          "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+          "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player-nope"},
           "max_dist": 16
         },
         "must_see": true

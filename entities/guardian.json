@@ -16,7 +16,7 @@
             {
               "filters": {  
                 "any_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+                  { "test" :  "is_family", "subject" : "other", "value" :  "player-nope"},
                   { "test" :  "is_family", "subject" : "other", "value" :  "squid"}
                 ] 
               },
@@ -127,7 +127,7 @@
           {
             "filters": {  
               "any_of": [
-                { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+                { "test" :  "is_family", "subject" : "other", "value" :  "player-nope"},
                 { "test" :  "is_family", "subject" : "other", "value" :  "squid"}
               ] 
             },
