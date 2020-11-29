@@ -108,6 +108,14 @@
       },
       "minecraft:behavior.ranged_attack": {
         "priority": 1,
+        "entity_types": [{
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "player"
+          }
+        }],
         "speed_multiplier": 1.25,
         "attack_interval": 1,
         "attack_radius": 10
