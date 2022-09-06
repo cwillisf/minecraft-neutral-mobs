@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.17.20",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:ravager",
@@ -68,7 +68,7 @@
           "update_interval_base": 60,
           "update_interval_variant": 40,
           "can_find_poi": false,
-          "can_migrate": false,
+          "can_migrate": true,
           "first_founding_reward": 0
         },
         "minecraft:behavior.move_to_village": {
@@ -86,17 +86,23 @@
           "event_name": "ambient.in.raid"
         }
       },
+      "minecraft:raid_persistence": {
+        "minecraft:persistent": {}
+      },
       "minecraft:hostile": {
         "minecraft:movement": {
           "value": 0.3
         },
         "minecraft:behavior.delayed_attack": {
           "priority": 4,
-          "reach_multiplier": 1.5,
-          "attack_duration": 0.75,
-          "hit_delay_pct": 0.5,
+          "attack_once": false,
           "track_target": true,
-          "sound_event": "attack.strong"
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.5,
+          "speed_multiplier": 1.0,
+          "attack_duration": 0.75,
+          "hit_delay_pct": 0.5
         },
         "minecraft:behavior.random_stroll": {
           "priority": 6,
@@ -131,6 +137,9 @@
           }
         },
         "minecraft:behavior.nearest_attackable_target": {
+          "priority": 3,
+          "must_see": true,
+          "within_radius": 16.0,
           "entity_types": [
             {
               "filters": {
@@ -144,6 +153,11 @@
                     "subject": "other",
                     "test": "is_family",
                     "value": "irongolem"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "wandering_trader"
                   }
                 ]
               },
@@ -167,10 +181,7 @@
               },
               "max_dist": 16
             }
-          ],
-          "must_see": true,
-          "priority": 3,
-          "within_radius": 16
+          ]
         },
         "minecraft:behavior.mount_pathing": {
           "priority": 5,
@@ -196,7 +207,8 @@
           "duration": 1,
           "attack_time": 0.5,
           "knockback_damage": 6,
-          "knockback_strength": 3,
+          "knockback_horizontal_strength": 3,
+          "knockback_vertical_strength": 3,
           "knockback_range": 4,
           "knockback_filters": {
             "test": "is_family",
@@ -218,6 +230,8 @@
       }
     },
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 20 : 0"
       },
@@ -269,7 +283,7 @@
         "table": "loot_tables/entities/ravager.json"
       },
       "minecraft:knockback_resistance": {
-        "value": 0.5
+        "value": 0.75
       },
       "minecraft:movement": {
         "value": 0.0
@@ -286,6 +300,11 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:break_blocks": {
         "breakable_blocks": [
@@ -309,6 +328,8 @@
           "pumpkin_stem",
           "red_flower",
           "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
           "reeds",
           "sapling",
           "snow_layer",
@@ -318,7 +339,19 @@
           "vine",
           "waterlily",
           "wheat",
-          "yellow_flower"
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves"
         ]
       },
       "minecraft:follow_range": {
@@ -356,7 +389,8 @@
         "add": {
           "component_groups": [
             "minecraft:hostile",
-            "minecraft:raid_configuration"
+            "minecraft:raid_configuration",
+            "minecraft:raid_persistence"
           ]
         }
       },
@@ -365,7 +399,8 @@
           "component_groups": [
             "minecraft:hostile",
             "minecraft:evoker_rider_for_raid",
-            "minecraft:raid_configuration"
+            "minecraft:raid_configuration",
+            "minecraft:raid_persistence"
           ]
         }
       },
@@ -374,7 +409,8 @@
           "component_groups": [
             "minecraft:hostile",
             "minecraft:pillager_rider_for_raid",
-            "minecraft:raid_configuration"
+            "minecraft:raid_configuration",
+            "minecraft:raid_persistence"
           ]
         }
       },
@@ -447,10 +483,26 @@
         }
       },
       "minecraft:start_celebrating": { // Event must be called exactly this for village to fire it when a raid is lost
-        "add": { "component_groups": [ "minecraft:celebrate" ] }
+        "sequence": [
+          {
+            "add": { "component_groups": [ "minecraft:celebrate" ] }
+          },
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
       },
       "minecraft:stop_celebrating": {
         "remove": { "component_groups": [ "minecraft:celebrate" ] }
+      },
+      "minecraft:raid_expired": {
+        "sequence": [
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
       }
     }
   }

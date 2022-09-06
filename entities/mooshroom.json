@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.16.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:mooshroom",
@@ -287,7 +287,8 @@
               "play_sounds": "shear",
               "spawn_items": { "table": "loot_tables/entities/mooshroom_shear.json" },
               "particle_on_start": { "particle_type": "largeexplode", "particle_y_offset": 0.25, "particle_offset_towards_interactor": true },
-              "interact_text": "action.interact.mooshear"
+              "interact_text": "action.interact.mooshear",
+              "vibration": "shear"
             },
             {
               "on_interact": {
@@ -306,7 +307,8 @@
               "play_sounds": "shear",
               "spawn_items": { "table": "loot_tables/entities/brown_mooshroom_shear.json" },
               "particle_on_start": { "particle_type": "largeexplode", "particle_y_offset": 0.25, "particle_offset_towards_interactor": true },
-              "interact_text": "action.interact.mooshear"
+              "interact_text": "action.interact.mooshear",
+              "vibration": "shear"
             },
             {
               "on_interact": {
@@ -406,6 +408,8 @@
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:type_family": {
         "family": [ "mushroomcow", "mob" ]
       },
@@ -444,7 +448,6 @@
         "avoid_damage_blocks": true
       },
       "minecraft:movement.basic": {
-
       },
       "minecraft:jump.static": {
       },
@@ -465,6 +468,9 @@
         "seats": {
           "position": [ 0.0, 1.105, 0.0 ]
         }
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:behavior.float": {
         "priority": 0
@@ -511,6 +517,8 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
       },
       "minecraft:damage_sensor": {
         "triggers": [

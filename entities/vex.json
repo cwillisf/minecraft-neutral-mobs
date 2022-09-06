@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.16.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:vex",
@@ -8,6 +8,8 @@
       "is_experimental": false
     },
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
       },
@@ -43,7 +45,11 @@
       },
       "minecraft:can_climb": {
       },
-      "minecraft:fire_immune": true,
+      "minecraft:fire_immune": {
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
       "minecraft:behavior.float": {
         "priority": 0
       },
@@ -92,6 +98,12 @@
       "minecraft:physics": {
         "has_gravity": false,
         "has_collision": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:game_event_movement_tracking": {
+        "emit_move": false,
+        "emit_swim": false
       }
     }
   }

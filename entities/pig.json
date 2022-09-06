@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.18.10",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:pig",
@@ -106,7 +106,7 @@
         },
         "minecraft:rideable": {
           "seat_count": 1,
-          "interact_text": "action.interact.mount",
+          "interact_text": "action.interact.ride.horse",
           "family_types": [
             "player"
           ],
@@ -125,10 +125,23 @@
 
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:damage_sensor": {
         "triggers": {
           "on_damage": {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "lightning"},
+            "filters": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "lightning"
+              },
+              {
+                "test": "is_difficulty",
+                "operator": "!=",
+                "value": "peaceful"
+              }
+            ],
             "event": "become_zombie"
           },
           "deals_damage": false
@@ -181,7 +194,10 @@
         "max_distance": 10.0
       },
       "minecraft:balloonable": {
-        "mass": 0.75
+        "mass": 0.9
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:behavior.mount_pathing": {
         "priority": 1,
@@ -223,6 +239,8 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
       }
     },
 
@@ -241,14 +259,7 @@
         "randomize": [
           {
             "weight": 95,
-            "remove": {
-            },
-            "add": {
-              "component_groups": [
-                "minecraft:pig_adult",
-                "minecraft:pig_unsaddled"
-              ]
-            }
+            "trigger": "minecraft:spawn_adult"
           },
           {
             "weight": 5,
@@ -297,6 +308,14 @@
         "add": {
           "component_groups": [
             "minecraft:pig_saddled"
+          ]
+        }
+      },
+      "minecraft:spawn_adult": {
+        "add": {
+          "component_groups": [
+            "minecraft:pig_adult",
+            "minecraft:pig_unsaddled"
           ]
         }
       }

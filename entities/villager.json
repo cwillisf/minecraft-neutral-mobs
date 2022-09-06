@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.18.10",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:villager",
@@ -9,6 +9,26 @@
     },
   
     "component_groups": {
+      "minecraft:celebrate": {
+        "minecraft:behavior.celebrate_survive": {
+          "priority": 5,
+          "fireworks_interval": {
+            "range_min": 2.0,
+            "range_max": 7.0
+          },
+          "duration": 30.0,
+          "on_celebration_end_event": {
+            "event": "minecraft:stop_celebrating",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.move_outdoors": {
+          "priority": 2,
+          "speed_multiplier": 0.8,
+          "timeout_cooldown": 8.0
+        }
+      },
+
       "become_witch": {
         "minecraft:transformation": {
           "into": "minecraft:witch",
@@ -35,38 +55,47 @@
             {
               "item": "minecraft:bread",
               "want_amount": 3,
-              "surplus_amount": 6
+              "surplus_amount": 6,
+              "stored_in_inventory": true
             },
             {
               "item": "minecraft:carrot",
               "want_amount": 60,
-              "surplus_amount": 4
+              "surplus_amount": 4,
+              "stored_in_inventory": true
             },
             {
-              "item":"minecraft:potato",
+              "item": "minecraft:potato",
               "want_amount": 60,
-              "surplus_amount": 24
+              "surplus_amount": 24,
+              "stored_in_inventory": true
             },
             {
               "item": "minecraft:beetroot",
               "want_amount": 60,
-              "surplus_amount": 24
+              "surplus_amount": 24,
+              "stored_in_inventory": true
             },
             {
               "item": "minecraft:wheat_seeds",
               "want_amount": 64,
-              "surplus_amount": 64
+              "surplus_amount": 64,
+              "stored_in_inventory": true,
+              "pickup_only": true
             },
             {
               "item": "minecraft:beetroot_seeds",
               "want_amount": 64,
-              "surplus_amount": 64
+              "surplus_amount": 64,
+              "stored_in_inventory": true,
+              "pickup_only": true
             },
             {
-              "item":"minecraft:wheat",
+              "item": "minecraft:wheat",
               "want_amount": 45,
               "surplus_amount": 18,
-              "craft_into": "minecraft:bread"
+              "craft_into": "minecraft:bread",
+              "stored_in_inventory": true
             }
           ]
         },
@@ -82,22 +111,26 @@
             {
               "item": "minecraft:bread",
               "want_amount": 3,
-              "surplus_amount": 6
+              "surplus_amount": 6,
+              "stored_in_inventory": true
             },
             {
               "item": "minecraft:carrot",
               "want_amount": 12,
-              "surplus_amount": 24
+              "surplus_amount": 24,
+              "stored_in_inventory": true
             },
             {
-              "item":"minecraft:potato",
+              "item": "minecraft:potato",
               "want_amount": 12,
-              "surplus_amount": 24
+              "surplus_amount": 24,
+              "stored_in_inventory": true
             },
             {
-              "item":"minecraft:beetroot",
+              "item": "minecraft:beetroot",
               "want_amount": 12,
-              "surplus_amount": 24
+              "surplus_amount": 24,
+              "stored_in_inventory": true
             }
           ]
         }
@@ -315,6 +348,8 @@
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:type_family": {
         "family": ["villager", "mob"]
       },
@@ -414,7 +449,6 @@
                 "any_of": [
                   { "test" : "is_family", "subject" : "other", "value" : "zombie"},
                   { "test" : "is_family", "subject" : "other", "value" : "zombie_villager"},
-                  { "test" : "is_family", "subject" : "other", "value" : "zombie_pigman"},
                   { "test" : "is_family", "subject" : "other", "value" : "illager"},
                   { "test" : "is_family", "subject" : "other", "value" : "vex"}
                 ]
@@ -436,10 +470,6 @@
         "priority": 6,
         "close_door_after": true
       },
-      "minecraft:behavior.move_towards_restriction": {
-        "priority": 7,
-        "speed_multiplier": 0.6
-      },
       "minecraft:behavior.share_items": {
         "priority": 8,
         "max_dist": 3,
@@ -455,7 +485,8 @@
         "priority": 9,
         "max_dist": 3,
         "goal_radius": 2,
-        "speed_multiplier": 0.5
+        "speed_multiplier": 0.5,
+        "can_pickup_to_hand_or_equipment": false
       },
       "minecraft:behavior.random_stroll": {
         "priority": 11,
@@ -471,6 +502,8 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
       }
     },
     "events":{
@@ -805,6 +838,14 @@
       "minecraft:become_cleric": {
         "add": { "component_groups": [ "cleric", "adult", "behavior_non_peasant" ] },
         "remove": { "component_groups": [ "baby" ] }
+      },
+      
+      "minecraft:start_celebrating": { // Event must be called exactly this for village to fire it when a raid is won
+        "add": { "component_groups": [ "minecraft:celebrate"] }
+      },
+      
+      "minecraft:stop_celebrating": {
+        "remove": { "component_groups": [ "minecraft:celebrate" ] }
       }
     }
   }

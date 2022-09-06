@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.16.0",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:snow_golem",
@@ -12,10 +12,12 @@
       "minecraft:snowman_sheared": {
         "minecraft:is_sheared": {
         }
-      }      
+      }
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:type_family": {
         "family": [ "snowgolem", "mob" ]
       },
@@ -70,7 +72,7 @@
             "damage_per_tick": 1
           },
           {
-            "filters": { "test": "in_water_or_rain", "operator": "==", "value": true },
+            "filters": { "test": "in_contact_with_water", "operator": "==", "value": true },
             "cause": "drowning",
             "damage_per_tick": 1
           }
@@ -82,8 +84,10 @@
             "cooldown": 2.5,
             "use_item": false,
             "hurt_item": 1,
+            "spawn_items": { "table": "loot_tables/entities/snow_golem_shear.json" },
             "play_sounds": "shear",
             "interact_text": "action.interact.shear",
+            "vibration": "shear",
             "on_interact": {
               "filters": {
                 "all_of": [
@@ -136,8 +140,7 @@
             "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
             "within_default": 6
           }
-        ],
-        "must_reach": true
+        ]
       },
       "minecraft:persistent": {
       },
@@ -146,6 +149,8 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
       }
     },
 

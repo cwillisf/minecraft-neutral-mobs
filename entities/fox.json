@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.17.10",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:fox",
@@ -17,7 +17,10 @@
         },
         "minecraft:ageable": {
           "duration": 1200,
-          "feed_items": "sweet_berries",
+          "feed_items": [
+            "sweet_berries",
+            "glow_berries"
+          ],
           "grow_up": {
             "event": "minecraft:ageable_grow_up",
             "target": "self"
@@ -29,7 +32,7 @@
           "speed_multiplier": 1.1
         }
       },
-   
+
       "minecraft:fox_adult": {
         "minecraft:experience_reward": {
           "on_bred": "Math.Random(1,7)",
@@ -44,7 +47,10 @@
         },
         "minecraft:breedable": {
           "require_tame": false,
-          "breed_items": "sweet_berries",
+          "breed_items": [
+            "sweet_berries",
+            "glow_berries"
+          ],
           "breeds_with": {
             "mate_type": "minecraft:fox",
             "baby_type": "minecraft:fox",
@@ -67,7 +73,7 @@
           ]
         }
       },
-      
+
       "minecraft:trusting_fox" : {
         "minecraft:trust": {},
         "minecraft:behavior.defend_trusted_target": {
@@ -90,7 +96,6 @@
         },
         "minecraft:behavior.melee_attack": {
           "priority": 10,
-          "target_dist": 1.2,
           "track_target": true,
           "require_complete_path": true,
           "reach_multiplier": 1.5
@@ -100,7 +105,6 @@
       "minecraft:defending_fox": {
         "minecraft:behavior.melee_attack": {
           "priority": 1,
-          "target_dist": 1.2,
           "track_target": true,
           "require_complete_path": true,
           "reach_multiplier": 1.5
@@ -132,7 +136,7 @@
           ]
         }
       },
-   
+
       "minecraft:fox_red": {
         "minecraft:variant": {
           "value": 0
@@ -295,7 +299,7 @@
             {
               "filters": {
                 "all_of": [
-                  { "test": "is_weather", "operator": "!=", "value": "thunderstorm" },
+                  { "test": "weather_at_position", "operator": "!=", "value": "thunderstorm" },
                   { "test": "is_daytime", "value": true }
                 ]
               },
@@ -304,7 +308,7 @@
             {
               "filters": {
                 "all_of": [
-                  { "test": "is_weather", "operator": "!=", "value": "thunderstorm" },
+                  { "test": "weather_at_position", "operator": "!=", "value": "thunderstorm" },
                   { "test": "is_daytime", "value": false }
                 ]
               },
@@ -312,7 +316,7 @@
             }
           ]
         },
-  
+
         "minecraft:behavior.find_cover": {
           "priority": 0,
           "speed_multiplier": 1,
@@ -324,7 +328,7 @@
         "minecraft:environment_sensor": {
           "triggers": [
 	    {
-              "filters": { "test" : "is_weather", "value" : "thunderstorm" },
+              "filters": { "test" : "weather_at_position", "value" : "thunderstorm" },
               "event": "minecraft:fox_configure_thunderstorm"
             },
             {
@@ -360,7 +364,7 @@
                 "value": true
               },
               {
-                "test": "is_weather",
+                "test": "weather_at_position",
                 "subject": "self",
                 "operator": "!=",
                 "value": "thunderstorm"
@@ -396,12 +400,12 @@
           "cooldown_time": 5.0
         }
       },
-      
+
       "minecraft:fox_night": {
         "minecraft:environment_sensor": {
           "triggers": [
 	    {
-              "filters": { "test" : "is_weather", "value" : "thunderstorm" },
+              "filters": { "test" : "weather_at_position", "value" : "thunderstorm" },
               "event": "minecraft:fox_configure_thunderstorm"
             },
             {
@@ -442,12 +446,16 @@
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:type_family": {
-        "family": [ "fox", "mob" ]
+        "family": [ "fox", "lightweight", "mob" ]
       },
       "minecraft:breathable": {
         "totalSupply": 15,
         "suffocateTime": 0
+      },
+      "minecraft:equip_item": {
       },
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
@@ -517,6 +525,7 @@
           { "item": "minecraft:salmon", "priority": 0, "max_amount": 1 },
           { "item": "minecraft:spider_eye", "priority": 0, "max_amount": 1 },
           { "item": "minecraft:sweet_berries", "priority": 0, "max_amount": 1 },
+          { "item": "minecraft:glow_berries", "priority": 0, "max_amount": 1 },
           { "item": "minecraft:suspicious_stew", "priority": 0, "max_amount": 1 }
         ]
       },
@@ -534,8 +543,14 @@
           }
         ]
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
       "minecraft:behavior.float": {
         "priority": 0
+      },
+      "minecraft:behavior.equip_item": {
+        "priority": 2
       },
       "minecraft:behavior.avoid_mob_type": {
         "priority": 5,
@@ -566,7 +581,8 @@
         "within_radius": 16,
         "can_get_scared": true,
         "items": [
-          "sweet_berries"
+          "sweet_berries",
+          "glow_berries"
         ]
       },
       "minecraft:behavior.stalk_and_pounce_on_target": {
@@ -579,12 +595,7 @@
         "interest_time": 2.0,
         "stuck_time": 2.0,
         "strike_dist": 2.0,
-        "stuck_blocks": {
-            "test": "is_block",
-            "subject": "block",
-            "operator": "==",
-            "value": "snow_layer"
-          }
+        "stuck_blocks": { "test": "is_block", "subject": "block", "operator": "==", "value": "snow_layer" }
       },
       "minecraft:behavior.pickup_items": {
         "priority": 11,
@@ -607,7 +618,9 @@
       "minecraft:behavior.raid_garden": {
         "priority": 12,
         "blocks": [
-          "minecraft:sweet_berry_bush"
+          "minecraft:sweet_berry_bush",
+          "minecraft:cave_vines_head_with_berries",
+          "minecraft:cave_vines_body_with_berries"
         ],
         "speed_multiplier": 1.2,
         "search_range": 12,
@@ -634,12 +647,15 @@
         "max_distance": 10.0
       },
       "minecraft:balloonable": {
+        "mass": 0.6
       },
       "minecraft:physics": {
       },
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
       },
       "minecraft:scheduler": {
         "min_delay_secs": 0,
@@ -687,9 +703,11 @@
             "event": "minecraft:fox_configure_day"
           }
         ]
+      },
+      "minecraft:block_climber": {
       }
     },
-    
+
     "events": {
       "minecraft:entity_spawned": {
         "sequence": [
@@ -819,7 +837,7 @@
           ]
         }
       },
-      
+
       "minecraft:fox_configure_defending": {
         "remove": {
           "component_groups": [
