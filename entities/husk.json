@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.0",
+  "format_version": "1.17.20",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:husk",
@@ -109,10 +109,16 @@
           "priority": 1,
           "within_radius": 16
         }
+      },
+      "minecraft:can_break_doors": {
+        "minecraft:annotation.break_door": {
+        }
       }
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0,
@@ -145,7 +151,12 @@
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
             "damage_per_tick": 4
           }
@@ -166,8 +177,6 @@
         "can_pass_doors": true,
         "can_break_doors": true,
         "avoid_portals": false
-      },
-      "minecraft:annotation.break_door": {
       },
       "minecraft:movement.basic": {
 
@@ -421,7 +430,10 @@
         "goal_radius": 2,
         "speed_multiplier": 1.0,
         "pickup_based_on_chance": true,
-        "can_pickup_any_item": true
+        "can_pickup_any_item": true,
+        "excluded_items": [
+          "minecraft:glow_ink_sac"
+        ]
       },
       "minecraft:behavior.random_stroll": {
         "priority": 7,
@@ -447,9 +459,21 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "player-nope" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player-nope"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
               ]
             },
             "max_dist": 35
@@ -457,8 +481,16 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "wandering_trader"
+                }
               ]
             },
             "max_dist": 35,
@@ -467,8 +499,17 @@
           {
             "filters": {
               "all_of": [
-                { "test": "is_family", "subject": "other", "value": "baby_turtle" },
-                { "test": "in_water", "subject": "other", "operator": "!=", "value": true }
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "baby_turtle"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": true
+                }
               ]
             },
             "max_dist": 35
@@ -485,39 +526,56 @@
 
     "events": {
       "minecraft:entity_spawned": {
-        "randomize": [
+        "sequence": [
           {
-            "weight": 9500,
-            "remove": {
-            },
-            "add": {
-              "component_groups": [
-                "minecraft:zombie_husk_adult"
-              ]
-            }
+            "randomize": [
+              {
+                "weight": 9500,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_husk_adult"
+                  ]
+                }
+              },
+              {
+                "weight": 425,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_husk_baby"
+                  ]
+
+                }
+              },
+              {
+                "weight": 75,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_husk_baby",
+                    "minecraft:zombie_husk_jockey"
+                  ]
+
+                }
+              }
+            ]
           },
           {
-            "weight": 425,
-            "remove": {
-            },
-            "add": {
-              "component_groups": [
-                "minecraft:zombie_husk_baby"
-              ]
-
-            }
-          },
-          {
-            "weight": 75,
-            "remove": {
-            },
-            "add": {
-              "component_groups": [
-                "minecraft:zombie_husk_baby",
-                "minecraft:zombie_husk_jockey"
-              ]
-
-            }
+            "randomize": [
+              {
+                "weight": 10,
+                "add": {
+                  "component_groups": [ "minecraft:can_break_doors" ]
+                }
+              },
+              {
+                "weight": 90
+              }
+            ]
           }
         ]
       },

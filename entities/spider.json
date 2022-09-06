@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.0",
+  "format_version": "1.18.20",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:spider",
@@ -139,6 +139,8 @@
     },
 
     "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
       "minecraft:experience_reward": {
         "on_death": "query.last_hit_by_player ? 5 : 0"
       },
@@ -184,7 +186,7 @@
       "minecraft:can_climb": {
       },
       "minecraft:attack": {
-        "damage": 3
+        "damage": 2
       },
       "minecraft:despawn": {
         "despawn_from_distance": {}
